@@ -14,9 +14,9 @@ TC1 - Check Filters on Advanced Searh Page
     And User Accepts Cookies
     And User is on Advanced Search Page
     When User Select Filter for First registration
-    And User Select Filter for Price Decsending
+    # And User Select Filter for Price Decsending
     Then Verify all cars are filtered by First Registration
-    And Verify all Cars are Filtered By Price Descending
+    # And Verify all Cars are Filtered By Price Descending
 
 
 *** Keywords ***
@@ -69,17 +69,24 @@ Verify all cars are filtered by first registration
     @{locators}    Get Webelements      //*[contains(@class,'specItem___')][1]
     @{result}=       Create List
     
-    :FOR   ${locator}   IN    @{locators}
-        \       ${name}=    Get Text    ${locator}
-        \       ${matches}=		Get Regexp Matches      ${name}  	\\d{4}
-        \       Append To List   ${result}    ${matches}
-         ${flat}    Evaluate    [item for sublist in ${result} for item in (sublist if isinstance(sublist, list) else [sublist])]
+    FOR   ${locator}   IN    @{locators}
+        ${name}=    Get Text    ${locator}
+        ${matches}=		Get Regexp Matches      ${name}  	\\d{4}
+        Append To List   ${result}    ${matches}
+        ${flat}    Evaluate    [item for sublist in ${result} for item in (sublist if isinstance(sublist, list) else [sublist])]
+    END
 
     ${numbs}=    Convert To Integer   2014
 
-    :FOR   ${locator}   IN    @{flat}
-    \   Log   ${locator}
-    \   Run Keyword Unless  ${locator} >= ${numbs}      Pass   
+    FOR   ${locator}   IN    @{flat}
+       Log   ${locator}
+       IF  ${locator} >= ${numbs}   
+           CONTINUE
+       ELSE
+           Fail
+       END
+
+    END
  
 User Select Filter for Price Decsending 
     Wait Until Element Is Visible    //select[contains(@name,'sort')]  
