@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.0.2 (Python 3.10.7 on win32)" generated="20230704 13:27:34.686" rpa="false" schemaversion="3">
+<suite id="s1" name="TestCases" source="C:\koodi\Github\RFWithAzureDevops\RF-exercise-with-azure-pipelines\TestCases.robot">
+<kw name="Open URL Locally" type="SETUP">
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<arg>Chrome</arg>
+<arg>executable_path=D:/a/1/s/node_modules/chromedriver/lib/chromedriver/chromedriver.exe</arg>
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<msg timestamp="20230704 13:27:34.816" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20230704 13:27:34.816" endtime="20230704 13:27:35.942"/>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20230704 13:27:35.943" endtime="20230704 13:27:36.050"/>
+</kw>
+<status status="PASS" starttime="20230704 13:27:34.815" endtime="20230704 13:27:36.050"/>
+</kw>
+<test id="s1-t1" name="TC1 - Check Filters on Advanced Searh Page" line="12">
+<kw name="Given Open URL AutoHero">
+<kw name="Go To" library="SeleniumLibrary">
+<arg>https://www.autohero.com/</arg>
+<doc>Navigates the current browser window to the provided ``url``.</doc>
+<msg timestamp="20230704 13:27:36.051" level="INFO">Opening url 'https://www.autohero.com/'</msg>
+<status status="PASS" starttime="20230704 13:27:36.051" endtime="20230704 13:27:37.200"/>
+</kw>
+<status status="PASS" starttime="20230704 13:27:36.051" endtime="20230704 13:27:37.200"/>
+</kw>
+<kw name="And User Accepts Cookies">
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230704 13:27:42.203" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230704 13:27:37.201" endtime="20230704 13:27:42.203"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//button[contains(text(),'Alles akzeptieren')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230704 13:27:42.207" level="INFO">Clicking element '//button[contains(text(),'Alles akzeptieren')]'.</msg>
+<status status="PASS" starttime="20230704 13:27:42.204" endtime="20230704 13:27:42.361"/>
+</kw>
+<status status="PASS" starttime="20230704 13:27:37.201" endtime="20230704 13:27:42.362"/>
+</kw>
+<kw name="And User is on Advanced Search Page">
+<kw name="Sleep" library="BuiltIn">
+<arg>5s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230704 13:27:47.363" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20230704 13:27:42.362" endtime="20230704 13:27:47.364"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//a[contains(text(),'Finde dein Auto')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230704 13:27:47.367" level="INFO">Clicking element '//a[contains(text(),'Finde dein Auto')]'.</msg>
+<status status="PASS" starttime="20230704 13:27:47.365" endtime="20230704 13:27:48.288"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//span[contains(text(),'Erstzulassung')]</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230704 13:27:48.288" endtime="20230704 13:27:48.348"/>
+</kw>
+<status status="PASS" starttime="20230704 13:27:42.362" endtime="20230704 13:27:48.348"/>
+</kw>
+<kw name="When User Select Filter for First registration">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//span[contains(text(),'Erstzulassung')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230704 13:27:48.349" level="INFO">Clicking element '//span[contains(text(),'Erstzulassung')]'.</msg>
+<status status="PASS" starttime="20230704 13:27:48.349" endtime="20230704 13:27:48.387"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//span[contains(text(),'Ab')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230704 13:27:48.387" level="INFO">Clicking element '//span[contains(text(),'Ab')]'.</msg>
+<msg timestamp="20230704 13:27:49.741" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20230704 13:27:49.741" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element &lt;span class="labelText___1Bghp"&gt;...&lt;/span&gt; is not clickable at point (206, 215). Other element would receive the click: &lt;select id="rangeStart" class="select___2Azxe" data-qa-selector="select-year-from"&gt;...&lt;/select&gt;
+  (Session info: chrome=114.0.5735.199)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x0049A813+48355]
+	(No symbol) [0x0042C4B1]
+	(No symbol) [0x00335358]
+	(No symbol) [0x00365062]
+	(No symbol) [0x00363B98]
+	(No symbol) [0x0036239B]
+	(No symbol) [0x0036179E]
+	(No symbol) [0x00359F5C]
+	(No symbol) [0x0037A73C]
+	(No symbol) [0x00359A36]
+	(No symbol) [0x0037AA94]
+	(No symbol) [0x0038C922]
+	(No symbol) [0x0037A536]
+	(No symbol) [0x003582DC]
+	(No symbol) [0x003593DD]
+	GetHandleVerifier [0x006FAABD+2539405]
+	GetHandleVerifier [0x0073A78F+2800735]
+	GetHandleVerifier [0x0073456C+2775612]
+	GetHandleVerifier [0x005251E0+616112]
+	(No symbol) [0x00435F8C]
+	(No symbol) [0x00432328]
+	(No symbol) [0x0043240B]
+	(No symbol) [0x00424FF7]
+	BaseThreadInitThunk [0x75DE00C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77C37B4E+286]
+	RtlGetAppContainerNamedObjectPath [0x77C37B1E+238]
+</msg>
+<status status="FAIL" starttime="20230704 13:27:48.387" endtime="20230704 13:27:49.774"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>//select[@name='yearRange.min']/*[text()='2014']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20230704 13:27:49.774" endtime="20230704 13:27:49.774"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//select[@name='yearRange.min']/*[text()='2014']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230704 13:27:49.774" endtime="20230704 13:27:49.774"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>3s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20230704 13:27:49.774" endtime="20230704 13:27:49.774"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>//a[contains(text(),'Ergebnisse')]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230704 13:27:49.774" endtime="20230704 13:27:49.774"/>
+</kw>
+<status status="FAIL" starttime="20230704 13:27:48.348" endtime="20230704 13:27:49.775"/>
+</kw>
+<kw name="And User Select Filter for Price Decsending">
+<status status="NOT RUN" starttime="20230704 13:27:49.775" endtime="20230704 13:27:49.775"/>
+</kw>
+<kw name="Then Verify all cars are filtered by First Registration">
+<status status="NOT RUN" starttime="20230704 13:27:49.775" endtime="20230704 13:27:49.775"/>
+</kw>
+<kw name="And Verify all Cars are Filtered By Price Descending">
+<status status="NOT RUN" starttime="20230704 13:27:49.775" endtime="20230704 13:27:49.775"/>
+</kw>
+<status status="FAIL" starttime="20230704 13:27:36.050" endtime="20230704 13:27:49.776">ElementClickInterceptedException: Message: element click intercepted: Element &lt;span class="labelText___1Bghp"&gt;...&lt;/span&gt; is not clickable at point (206, 215). Other element would receive the click: &lt;select id="rangeStart" class="select___2Azxe" data-qa-selector="select-year-from"&gt;...&lt;/select&gt;
+  (Session info: chrome=114.0.5735.199)
+Stacktrace:
+Backtrace:
+	GetHandleVerifier [0x0049A813+48355]
+	(No symbol) [0x0042C4B1]
+	(No symbol) [0x00335358]
+	(No symbol) [0x00365062]
+	(No symbol) [0x00363B98]
+	(No symbol) [0x0036239B]
+	(No symbol) [0x0036179E]
+	(No symbol) [0x00359F5C]
+	(No symbol) [0x0037A73C]
+	(No symbol) [0x00359A36]
+	(No symbol) [0x0037AA94]
+	(No symbol) [0x0038C922]
+	(No symbol) [0x0037A536]
+	(No symbol) [0x003582DC]
+	(No symbol) [0x003593DD]
+	GetHandleVerifier [0x006FAABD+2539405]
+	GetHandleVerifier [0x0073A78F+2800735]
+	GetHandleVerifier [0x0073456C+2775612]
+	GetHandleVerifier [0x005251E0+616112]
+	(No symbol) [0x00435F8C]
+	(No symbol) [0x00432328]
+	(No symbol) [0x0043240B]
+	(No symbol) [0x00424FF7]
+	BaseThreadInitThunk [0x75DE00C9+25]
+	RtlGetAppContainerNamedObjectPath [0x77C37B4E+286]
+	RtlGetAppContainerNamedObjectPath [0x77C37B1E+238]
+</status>
+</test>
+<kw name="Close Browser" library="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" starttime="20230704 13:27:49.778" endtime="20230704 13:27:51.845"/>
+</kw>
+<doc>Auto1/QA Task</doc>
+<status status="FAIL" starttime="20230704 13:27:34.687" endtime="20230704 13:27:51.845"/>
+</suite>
+<statistics>
+<total>
+<stat pass="0" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="0" fail="1" skip="0" id="s1" name="TestCases">TestCases</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20230704 13:27:34.810" level="ERROR">Error in file 'C:\koodi\Github\RFWithAzureDevops\RF-exercise-with-azure-pipelines\TestCases.robot' on line 5: Importing library 'helpers.HelpLib' failed: ModuleNotFoundError: No module named 'helpers'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\Users\juhok\AppData\Local\Programs\Python\Python310\Scripts\robot.exe
+  C:\Users\juhok\AppData\Local\Programs\Python\Python310\python310.zip
+  C:\Users\juhok\AppData\Local\Programs\Python\Python310\DLLs
+  C:\Users\juhok\AppData\Local\Programs\Python\Python310\lib
+  C:\Users\juhok\AppData\Local\Programs\Python\Python310
+  C:\Users\juhok\AppData\Local\Programs\Python\Python310\lib\site-packages</msg>
+</errors>
+</robot>

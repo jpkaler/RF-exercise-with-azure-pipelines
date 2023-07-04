@@ -11,6 +11,7 @@ Suite Teardown  Close Browser
 *** Test Cases ***
 TC1 - Check Filters on Advanced Searh Page
     Given Open URL AutoHero
+    And User Accepts Cookies
     And User is on Advanced Search Page
     When User Select Filter for First registration
     And User Select Filter for Price Decsending
@@ -41,13 +42,18 @@ Open URL Locally
 Open URL AutoHero
     Go To    https://www.autohero.com/
 
+User Accepts Cookies
+    Sleep   5s
+    Click Element                       //button[contains(text(),'Alles akzeptieren')]
+
 User is on Advanced Search Page
     Sleep   5s
-    Click Element                       //button[contains(text(),'Erweiterte Suche')]
-    Wait Until Element Is Visible       //span[contains(text(),'Erstzulassung ab')]
+    Click Element                       //a[contains(text(),'Finde dein Auto')]
+    Wait Until Element Is Visible       //span[contains(text(),'Erstzulassung')]
 
 User Select Filter for First registration
-    Click Element                        //span[contains(text(),'Erstzulassung ab')]
+    Click Element                        //span[contains(text(),'Erstzulassung')]
+    Click Element                        //span[contains(text(),'Ab')]
     Wait Until Element Is Visible        //select[@name='yearRange.min']/*[text()='2014']   
     Click Element                        //select[@name='yearRange.min']/*[text()='2014']
     Sleep   3s
