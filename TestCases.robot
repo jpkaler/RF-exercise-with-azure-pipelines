@@ -43,21 +43,21 @@ Open URL AutoHero
     Go To    https://www.autohero.com/
 
 User Accepts Cookies
-    Sleep   5s
+    Sleep   2s
     Click Element                       //button[contains(text(),'Alles akzeptieren')]
 
 User is on Advanced Search Page
-    Sleep   5s
+    Sleep   2s
     Click Element                       //a[contains(text(),'Finde dein Auto')]
-    Wait Until Element Is Visible       //span[contains(text(),'Erstzulassung')]
+    Wait Until Element Is Visible       //button[@id='yearFilter']
 
 User Select Filter for First registration
-    Click Element                        //span[contains(text(),'Erstzulassung')]
-    Click Element                        //span[contains(text(),'Ab')]
-    Wait Until Element Is Visible        //select[@name='yearRange.min']/*[text()='2014']   
-    Click Element                        //select[@name='yearRange.min']/*[text()='2014']
+    Click Element                        //button[@id='yearFilter']
+    Sleep   2s
+    Click Element                        //select[@id='rangeStart']/*[text()='2014']
+    # Wait Until Element Is Visible        //select[@name='yearRange.min']/*[text()='2014']   
+    # Click Element                        //select[@name='yearRange.min']/*[text()='2014']
     Sleep   3s
-    Click Element                        //a[contains(text(),'Ergebnisse')]
 
 Verify all cars are filtered by first registration
 
